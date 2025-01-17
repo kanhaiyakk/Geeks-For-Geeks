@@ -37,24 +37,24 @@ System.out.println("~");
 // User function Template for Java
 class Solution {
     public ArrayList<Integer> firstAndLast(int x, int arr[]) {
+        int first=-1;
+        int last=-1;
         ArrayList<Integer> list=new ArrayList<>();
         for(int i=0;i<arr.length;i++){
             if(arr[i]==x){
-                list.add(i);
-                break;
+                if(first==-1){
+                    first=i;
+                }
+               last=i;
             }
         }
-        for(int j=arr.length-1;j>=0;j--){
-            if(arr[j]==x){
-                list.add(j);
-                break;
-            }
-        }
-        if(list.size()!=2){
-            list.clear();
+        if(first==-1){
             list.add(-1);
-            
+        }else{
+            list.add(first);
+            list.add(last);
         }
+       
         return list;
     }
 }
