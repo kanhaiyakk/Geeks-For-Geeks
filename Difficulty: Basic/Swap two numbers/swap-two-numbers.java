@@ -26,9 +26,12 @@ class GFG{
 class Solution{
     static List<Integer> get(int a,int b)
     {
-        a=a+b;
-        b=a-b;
-        a=a-b;
+        a=a^b;
+        b=a^b;
+        a=a^b;
+        // a=a+b;
+        // b=a-b;
+        // a=a-b;
         List<Integer> arrlist =new ArrayList<>();
         arrlist.add(a);
         arrlist.add(b);
