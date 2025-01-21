@@ -24,10 +24,22 @@ class GFG {
 // User function Template for Java
 class Solution {
     static boolean isEven(int n) {
-        if(n%2==0){
-            return true;
-        }else{
-            return false;
-        }
+        return (n&1)==0;
+        
+        //M2
+        // if((n&1)==1){
+        //     return false;
+        // }else{
+        //     return true;
+        // }
+        
+        
+        
+        //M1
+        // if(n%2==0){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
     }
 }
