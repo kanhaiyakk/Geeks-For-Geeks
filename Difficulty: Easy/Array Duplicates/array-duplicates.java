@@ -16,7 +16,7 @@ class Geeks {
 
             // Getting the result from the Solution class
             List<Integer> result = new Solution().findDuplicates(arr);
-
+            Collections.sort(result);
             // Printing the result in the required format
             if (result.isEmpty()) {
                 System.out.println("[]");
@@ -37,33 +37,16 @@ class Geeks {
 
 class Solution {
     public List<Integer> findDuplicates(int[] arr) {
-        Set<Integer> seen=new HashSet<>();
-        Set<Integer> duplicates=new HashSet<>();
-        for(int num : arr){
-            if(seen.contains(num)){
-                duplicates.add(num);
-            }else{
-                seen.add(num);
+        List<Integer> list=new ArrayList<>();
+        Map<Integer,Integer> map=new HashMap<>();
+        for(int num: arr){
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        for(int key:map.keySet()){
+            if(map.get(key)>1){
+                list.add(key);
             }
         }
-        List<Integer> result=new ArrayList<>(duplicates);
-        Collections.sort(result);
-        return result;
-        
-        
-        
-        
-    //   Map<Integer,Integer> map= new HashMap<>();
-    //   for(int num : arr){
-    //       map.put(num, map.getOrDefault(num, 0)+1);
-    //   }
-    //   List<Integer> duplicates=new ArrayList<>();
-    //   for(Map.Entry<Integer, Integer> entry : map.entrySet()){
-    //       if(entry.getValue()>1){
-    //           duplicates.add(entry.getKey());
-    //       }
-    //   }
-    //   Collections.sort(duplicates);
-    //   return duplicates;
+        return list;
     }
 }
